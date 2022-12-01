@@ -12,6 +12,7 @@
   background-color: white;
   height: 500px;
   margin: auto;
+  overflow-y: scroll;
 }
 .shop__item {
   display: flex;
@@ -20,4 +21,7 @@
   height: 100px;
   padding: 10px;
   justify-content: center;
+}
+td {
+  vertical-align: middle;
 }
