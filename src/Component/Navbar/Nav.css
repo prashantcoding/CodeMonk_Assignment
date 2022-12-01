@@ -2,11 +2,13 @@
   background-color: #0002a1;
   color: white;
   height: 4rem;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
 }
 .nav_navigation {
   display: flex;
-  margin-top: 1rem;
-  justify-content: center;
+
   align-items: center;
   list-style: none;
 }

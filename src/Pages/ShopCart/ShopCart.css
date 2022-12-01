@@ -1,0 +1,23 @@
+.shop__container {
+  font-weight: 300;
+}
+.shop__heading {
+  font-weight: bold;
+  position: relative;
+  margin: 4rem;
+  margin-bottom: 1rem;
+}
+.shop__mainbox {
+  width: 80%;
+  background-color: white;
+  height: 500px;
+  margin: auto;
+}
+.shop__item {
+  display: flex;
+  border: 1px solid beige;
+  width: 120px;
+  height: 100px;
+  padding: 10px;
+  justify-content: center;
+}
