@@ -1,0 +1,8 @@
+.shop__container {
+  font-weight: 300;
+}
+.shop__heading {
+  font-weight: bold;
+  position: relative;
+  margin: 5rem;
+}

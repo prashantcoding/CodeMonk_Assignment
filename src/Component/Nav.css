@@ -1,0 +1,18 @@
+.nav__head {
+  background-color: #0002a1;
+  color: white;
+  height: 4rem;
+}
+.nav_navigation {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+.line {
+  width: 2rem;
+  height: 0.1rem;
+  transform: rotate(90deg);
+  background-color: white;
+}
