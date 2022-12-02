@@ -96,10 +96,8 @@ const pincode = {
   },
 };
 const discount = {
-  discount: {
-    minTotal: 5000,
-    discountPercentage: 10,
-  },
+  minTotal: 5000,
+  discountPercentage: 10,
 };
 
 export { products, discount, pincode };

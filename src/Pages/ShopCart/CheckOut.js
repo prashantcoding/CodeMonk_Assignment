@@ -43,7 +43,7 @@ const CheckOut = () => {
         <div>
           <h5 className="mx-1" style={{ fontWeight: "bold" }}>
             {" "}
-            Order Summary (xx item)
+            Order Summary ({cart.length} item)
           </h5>
           <div
             className="d-flex justify-content-between "

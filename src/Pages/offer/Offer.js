@@ -1,11 +1,19 @@
 import React from "react";
 import "./off.css";
+import { discount } from "../../Asset/Data/data";
 const Offer = () => {
+  let disc = discount;
+
   return (
     <div>
-      <div className="offer__container">
-        <p>shop for $5000 or more and get 10% discount on your order</p>
-      </div>
+      {
+        <div className="offer__container">
+          <p>
+            shop for ${disc.minTotal} or more and get{" "}
+            {discount.discountPercentage}% discount on your order
+          </p>
+        </div>
+      }
     </div>
   );
 };

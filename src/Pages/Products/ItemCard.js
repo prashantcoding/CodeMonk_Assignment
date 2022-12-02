@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./product.css";
 import { ItemState } from "../../Context/ItemContext";
 const ItemCard = ({ item }) => {
-  const remove = (item) => {
-    setcart(cart.filter((c) => c.ItemId != item.ItemId));
+  const [status, setstatus] = useState(true);
+  const remove = (id) => {
+    setcart(cart.filter((q) => q.id != id));
   };
   const { cart, setcart } = ItemState();
   return (
@@ -41,15 +42,29 @@ const ItemCard = ({ item }) => {
           <h5 class="card-title">{item.name}</h5>
           <p class="card-text">{item.desc}</p>
           <div className="d-flex justify-content-between">
-            <button
-              href="#"
-              class="btn btn-primary"
-              onClick={() => {
-                setcart([...cart, item]);
-              }}
-            >
-              Add to Cart
-            </button>
+            {status ? (
+              <button
+                href="#"
+                class="btn btn-primary"
+                onClick={() => {
+                  setcart([...cart, item]);
+                  setstatus(false);
+                }}
+              >
+                Add to Cart
+              </button>
+            ) : (
+              <button
+                href="#"
+                class="btn btn-primary"
+                onClick={() => {
+                  remove(item.id);
+                  setstatus(true);
+                }}
+              >
+                Remove
+              </button>
+            )}
           </div>
           <p class="card-text mx-1 mt-2">${item.price} </p>
         </div>

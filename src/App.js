@@ -15,11 +15,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Products />}></Route>
         <Route path="/cart" element={<ShopCart />}></Route>
-        <Route path="/gift" element={<GiftCart/>}></Route>
-        <Route path="/checkout" element={<CheckOut/>}></Route>
+        <Route path="/gift" element={<GiftCart />}></Route>
+        <Route path="/checkout" element={<CheckOut />}></Route>
       </Routes>
     </div>
-  )
+  );
 }
 
 export default App;

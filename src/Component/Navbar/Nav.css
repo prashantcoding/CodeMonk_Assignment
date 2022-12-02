@@ -12,9 +12,21 @@
   align-items: center;
   list-style: none;
 }
+.hide {
+  display: block;
+}
 .line {
   width: 2rem;
   height: 0.1rem;
   transform: rotate(90deg);
   background-color: white;
+}
+
+@media (max-width: 500px) {
+  .hide {
+    display: none;
+  }
+  .nav_navigation {
+    width: 15rem;
+  }
 }
