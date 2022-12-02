@@ -3,11 +3,21 @@ import "./checkout.css";
 import { ItemState } from "../../Context/ItemContext";
 import { GoLocation } from "react-icons/go";
 import { pincode } from "../../Asset/Data/data";
+import { AiFillCheckCircle } from "react-icons/ai";
 const CheckOut = () => {
+  const [value, setvalue] = useState();
   const [sub, setsub] = useState();
   const [discount, setdiscount] = useState();
   const { cart, setcart } = ItemState();
-  let code = pincode;
+  const [location, setlocation] = useState({
+    id: "",
+    deliveryPrice: 0,
+    cashOnDelivery: false,
+    estimatedDays: {
+      min: "",
+      max: "",
+    },
+  });
   let subtotal = () => {
     var subprice = 0;
     for (var i = 0; i < cart.length; i++) {
@@ -31,10 +41,13 @@ const CheckOut = () => {
   let total = () => {
     let subt = subtotal();
     let dis = getdiscount();
-    return subt - dis;
+    return subt - dis + location.deliveryPrice;
   };
 
-  let check = (code) => {};
+  let check = (item) => {
+    let av = <></>;
+    return av;
+  };
 
   return (
     <div
@@ -44,32 +57,65 @@ const CheckOut = () => {
       <div className="m-5">
         <h4>Delivery Availabilty</h4>
         <div className="m-1 d-flex">
+          <GoLocation className="" />
+          <input className="zipcode" value={value}></input>
           <div class="dropdown">
             <button
-              class="btn btn-secondary dropdown-toggle"
+              class="btn btn-primary dropdown-toggle"
               type="button"
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              pincode
+              Change
             </button>
-            {code && (
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                {code.map((item) => {
-                  return (
-                    <>
-                      <li>
-                        <p class="dropdown-item" href="#">
-                          {item.id}
-                        </p>
-                      </li>
-                    </>
-                  );
-                })}
-              </ul>
-            )}
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              {pincode.map((item) => {
+                return (
+                  <>
+                    <p
+                      style={{ cursor: "pointer" }}
+                      onClick={() => {
+                        setvalue(item.id);
+                        setlocation(item);
+                      }}
+                    >
+                      {item.id}
+                    </p>
+                  </>
+                );
+              })}
+            </ul>
           </div>
+        </div>
+        <div className="d-flex  " style={{ textAlign: "center" }}>
+          <AiFillCheckCircle
+            size={20}
+            color="green"
+            className="mt-2 mx-2"
+          ></AiFillCheckCircle>
+          <p className="mt-1">DeliveryPrice ${location.deliveryPrice}</p>
+        </div>
+        <div className="d-flex  " style={{ textAlign: "center" }}>
+          <AiFillCheckCircle
+            size={20}
+            color="green"
+            className="mt-2 mx-2"
+          ></AiFillCheckCircle>
+          <p className="mt-1">
+            {location.cashOnDelivery ? "Available" : "Not Available"}
+          </p>
+        </div>
+        <div className="d-flex  " style={{ textAlign: "center" }}>
+          <AiFillCheckCircle
+            size={20}
+            color="green"
+            className="mt-2 mx-2"
+          ></AiFillCheckCircle>
+          <p className="mt-1">
+            Estimated Days min {location.estimatedDays.min} and max{" "}
+            {location.estimatedDays.max}
+          </p>
         </div>
       </div>
       <div className="cbox__main mx-5">
@@ -96,8 +142,8 @@ const CheckOut = () => {
             className="d-flex justify-content-between "
             style={{ padding: ".4rem" }}
           >
-            <span> Standard Shipping </span>
-            <span>Free</span>
+            <span> Standart Shipping </span>
+            <span>{location.deliveryPrice}$</span>
           </div>
           <div
             className="d-flex justify-content-between "
