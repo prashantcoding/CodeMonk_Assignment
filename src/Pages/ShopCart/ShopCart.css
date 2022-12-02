@@ -6,13 +6,16 @@
   position: relative;
   margin: 4rem;
   margin-bottom: 1rem;
+  
 }
 .shop__mainbox {
-  width: 80%;
+  width:90%;
   background-color: white;
   height: 500px;
   margin: auto;
   overflow-y: scroll;
+  border:2px solid transparent;
+  border-radius: 10px;
 }
 .shop__item {
   display: flex;
@@ -21,7 +24,63 @@
   height: 100px;
   padding: 10px;
   justify-content: center;
+  background-color: white;
 }
 td {
   vertical-align: middle;
+}
+.cart__tagline{
+  width: 150px;
+  background-color: blue;
+  text-align: center;
+  color: white;
+  font-weight:500;
+  
+}
+.gift__tagline{
+  width: 60px;
+  font-size: 14px;
+  margin:4px;
+  background-color: #212121;
+  text-align: center;
+  color: white;
+  font-weight:500;
+}
+
+.box.arrow-top {
+  margin-top: 40px;
+}
+.box {
+  
+  background-color:#fafafa ;
+  width: 150%;
+  
+  position: relative;
+  margin: 10px;
+  
+}
+
+.gift__img {
+  border: 2px solid white;
+  padding: 20px;
+  
+}
+.shopcart__desc{
+  white-space: pre-line;  
+vertical-align: bottom;
+line-height: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+ .shop__mainbox{
+  width: 70%;
+  flex-wrap: wrap;
+ }
+ .shopcart__desc{
+  line-height: 16px;
+ }
+ th{
+  display: none;
+  
+ }
 }

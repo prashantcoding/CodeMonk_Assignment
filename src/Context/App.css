@@ -13,15 +13,5 @@ a:hover {
 }
 ::-webkit-scrollbar {
   width: 2px;
-  background-color: whitesmoke;
-}
-
-@media only screen and (max-width: 600px) {
-  th {
-    display: none;
-  }
-  tr {
-    display: flex;
-    flex-wrap: wrap;
-  }
+  background-color: white;
 }
