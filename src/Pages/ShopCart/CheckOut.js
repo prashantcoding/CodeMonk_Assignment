@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./checkout.css";
 import { ItemState } from "../../Context/ItemContext";
-
+import { GoLocation } from "react-icons/go";
+import { pincode } from "../../Asset/Data/data";
 const CheckOut = () => {
   const [sub, setsub] = useState();
   const [discount, setdiscount] = useState();
   const { cart, setcart } = ItemState();
-
+  let code = pincode;
   let subtotal = () => {
     var subprice = 0;
     for (var i = 0; i < cart.length; i++) {
@@ -33,12 +34,44 @@ const CheckOut = () => {
     return subt - dis;
   };
 
+  let check = (code) => {};
+
   return (
     <div
       className="d-flex justify-content-between m-auto"
       style={{ width: "90%", backgroundColor: "white", heigth: "auto" }}
     >
-      <div></div>
+      <div className="m-5">
+        <h4>Delivery Availabilty</h4>
+        <div className="m-1 d-flex">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              pincode
+            </button>
+            {code && (
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                {code.map((item) => {
+                  return (
+                    <>
+                      <li>
+                        <p class="dropdown-item" href="#">
+                          {item.id}
+                        </p>
+                      </li>
+                    </>
+                  );
+                })}
+              </ul>
+            )}
+          </div>
+        </div>
+      </div>
       <div className="cbox__main mx-5">
         <div>
           <h5 className="mx-1" style={{ fontWeight: "bold" }}>
@@ -63,7 +96,7 @@ const CheckOut = () => {
             className="d-flex justify-content-between "
             style={{ padding: ".4rem" }}
           >
-            <span> Standart Shipping </span>
+            <span> Standard Shipping </span>
             <span>Free</span>
           </div>
           <div

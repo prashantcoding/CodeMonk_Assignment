@@ -69,8 +69,9 @@ const products = [
   },
 ];
 
-const pincode = {
-  560066: {
+const pincode = [
+  {
+    id: 560066,
     deliveryPrice: 50,
     cashOnDelivery: false,
     estimatedDays: {
@@ -78,7 +79,8 @@ const pincode = {
       max: 5,
     },
   },
-  560067: {
+  {
+    id: 560067,
     deliveryPrice: 0,
     cashOnDelivery: true,
     estimatedDays: {
@@ -86,7 +88,8 @@ const pincode = {
       max: 5,
     },
   },
-  560068: {
+  {
+    id: 560068,
     deliveryPrice: 0,
     cashOnDelivery: false,
     estimatedDays: {
@@ -94,7 +97,7 @@ const pincode = {
       max: 5,
     },
   },
-};
+];
 const discount = {
   minTotal: 5000,
   discountPercentage: 10,
