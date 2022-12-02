@@ -16,6 +16,13 @@ import GiftCart from "./GiftCart";
 import CheckOut from "./CheckOut";
 const ShopCart = () => {
   const { cart, setcart } = ItemState();
+  useEffect(() => {
+    if (localStorage.getItem("cart").length > 1) {
+      let list = localStorage.getItem("cart");
+      list = JSON.parse(list);
+      setcart(list);
+    }
+  }, [cart]);
   const increment = (id) => {
     let myCart = cart.map((item) => {
       if (item.id === id) {
@@ -23,9 +30,10 @@ const ShopCart = () => {
           item.qty++;
         }
       }
+
       return item;
     });
-
+    localStorage.setItem("cart", JSON.stringify(cart));
     setcart(myCart);
     console.log("newCart", myCart);
   };
@@ -38,10 +46,14 @@ const ShopCart = () => {
       }
       return item;
     });
+    localStorage.setItem("cart", JSON.stringify(cart));
     setcart(myCart);
   };
-  const remove = (id) => {
-    setcart(cart.filter((c) => c.id != id));
+  const remove = async (id) => {
+    let list = cart.filter((c) => c.id != id);
+
+    localStorage.setItem("cart", JSON.stringify(list));
+    setcart(list);
   };
 
   const total = () => {};

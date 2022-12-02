@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./product.css";
 import { ItemState } from "../../Context/ItemContext";
 const ItemCard = ({ item }) => {
@@ -7,6 +7,11 @@ const ItemCard = ({ item }) => {
     setcart(cart.filter((q) => q.id != id));
   };
   const { cart, setcart } = ItemState();
+  useEffect(() => {
+    let list = JSON.stringify(cart);
+    localStorage.setItem("cart", list);
+  }, [cart]);
+
   return (
     <div style={{ margin: ".4rem" }}>
       <div class="card m-2" style={{ width: "20rem" }}>
